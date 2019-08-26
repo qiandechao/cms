@@ -1,0 +1,29 @@
+<#--配置页面面板属性-->
+<#assign pannel_config>
+{       "page_config":{
+		"page_name":"代码生成",
+		"module_name":"cms/poster"
+		},
+		"queryform":{
+	          "form_id":"query_form",	
+	          "sqlid":"cms.poster.save",
+	          "ver_type":"msg",
+	          "fields":[
+								  {"name":"poster_name","type":"text","label":"海报标题","verify":"required","placeholder":"请输入海报标题"}, 
+								  {"name":"short_content","type":"text","label":"海报短文","verify":"required","placeholder":"请输入海报短文"}, 
+								  {"name":"image_url","type":"file","label":"海报图片","file_size":"10024","div_width":"1500","title":"上传海报图片"},
+								  {"name":"poster_content","type":"edit","label":"海报全文","verify":"required","height":"300","width":"800","placeholder":"请输入海报全文"}, 
+								  {"name":"status","type":"checkbox","label":"状态","div_width":"180","checkbox_text":"显示|不显","checkbox_value":"1|0","value":"1","checked":"true"},
+								  {"name":"poster_sort","type":"num","label":"排序","verify":"required","placeholder":"请输入海报图片"}
+					   ],
+	       "tab_buttons":[
+		    				{"button_id":"s1","button_name":"新增","event":"add","icon":"&#xe654;"},
+		    				{"button_id":"s2","button_name":"关闭","event":"close","icon":"&#x1006;"}
+			    		]
+			  }
+}
+</#assign>
+<#--为table 转换需要的qryresult-->
+<#assign pannelConfig=pannel_config?eval>
+<#include "admin/template/page/comn_update.html">
+ 

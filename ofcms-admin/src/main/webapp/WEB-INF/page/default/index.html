@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>龙口海景房-首页</title>
+<#include "default/common/head.html" />
+<style type="text/css">
+	img{
+		text-align: center;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+</head>
+<body> 	
+	<!-- banner -->
+	<div class="w3ls-banner">
+		<!-- banner-text -->
+		<div class=""> 
+			<div class="flexslider">
+				<ul class="slides">
+					<@of.ad site_id=site.site_id edition="banner">
+		            <#list ad as data >
+						<li>
+		                <div><a href="${data.ad_jump_url!'javascript:;'}">
+		                <img src="..${data.ad_image_url}"
+		                        alt="${data.ad_name}" style="max-height:525px; width: 100%;"></a>
+		                </div>
+						</li>
+		            </#list>
+		           </@of.ad>
+				</ul>
+			</div>    
+		</div> 
+		<!-- //banner-text -->  
+	</div>	
+	<!-- //banner -->
+	<!-- welcome -->
+	<div class="welcome">
+		<@of.poster site_id=site.site_id >
+         <#list poster as data >
+         <#if data_index%2 == 0 >
+	         <div class="welcome-top">
+				<div class="col-md-6 welcome-left">
+					<div class="welcome-left-top">
+						<h3>${data.poster_name}</h3>
+						<p>${data.short_content}</p>
+						<div class="agileits_w3layouts_more">
+							<a href="#" data-toggle="modal" data-target="#myModal${data.poster_id}">查看更多</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 welcome-right" style="background: url(..${data.image_url});background-size: cover;">
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		<#else>
+			<div class="welcome-bottom">
+				<div class="col-md-6 welcome-bottom-left" style="background: url(..${data.image_url});background-size: cover;">
+				</div>
+				<div class="col-md-6 welcome-bottom-right">
+					<div class="welcome-left-top">
+						<h3>${data.poster_name}</h3>
+						<p>${data.short_content}</p>
+						<div class="agileits_w3layouts_more">
+							<a href="#" data-toggle="modal" data-target="#myModal${data.poster_id}">查看更多</a>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+         </#if>
+		<div class="modal video-modal fade" id="myModal${data.poster_id}" tabindex="-1" role="dialog" aria-labelledby="myModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						${data.poster_name}
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+					</div>
+					<section>
+						<div class="modal-body img-responsive">
+							<p>${data.poster_content}</p>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+		</#list>
+        </@of.poster>
+	</div>
+	<#include "default/common/footer.html" />
+	<!-- js --> 
+	<!-- FlexSlider --> 
+	<script type="text/javascript">
+		$(window).load(function(){
+		  $('.flexslider').flexslider({
+			animation: "slide",
+			start: function(slider){
+			  $('body').removeClass('loading');
+			}
+		  });
+		});
+	</script>
+	<!-- End-slider-script -->
+	<!-- start-smooth-scrolling -->
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+			
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+	</script>
+	<!-- //end-smooth-scrolling -->	
+	<!-- smooth-scrolling-of-move-up -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			
+		});
+	</script>
+</body>
+</html>

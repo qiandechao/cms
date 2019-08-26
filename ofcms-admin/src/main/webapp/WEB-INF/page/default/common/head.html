@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>龙口海景房-首页</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="龙口海景房,山东龙口海景房,烟台龙口海景房" />
+<!-- <meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport"
+	content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="description"
+	content="java 版CMS系统、基于java技术研发的内容管理系统、功能：栏目模板自定义、内容模型自定义、多个站点管理、在线模板页面编辑等功能、代码完全开源、MIT授权协议。">
+<meta name="keywords"
+	content="ofcms,cms,java,Jfinal,java cms,php cms,内容管理系统,门户网站,手机网站,免费cms,开源cms,后台管理,软件开发"> -->
+<link rel="stylesheet" href="${reroot}/static/plugins/layui/css/layui.css" media="all">
+<link rel="stylesheet" href="${reroot}/static/assets/css/index.css" media="all">
+<script src="${reroot}/static/plugins/layui/layui.js"></script>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="${reroot}/static/xiaofei/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="${reroot}/static/xiaofei/css/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="${reroot}/static/xiaofei/css/font-awesome.css" rel="stylesheet">   <!-- font-awesome icons --> 
+<link rel="stylesheet" href="${reroot}/static/xiaofei/css/flexslider.css" type="text/css" media="screen" /> 
+<!-- //Custom Theme files -->  
+<!-- font -->
+<script type="text/javascript" src="${reroot}/static/xiaofei/js/jquery-2.1.4.min.js"></script>
+<script defer src="${reroot}/static/xiaofei/js/jquery.flexslider.js"></script>
+<script type="text/javascript" src="${reroot}/static/xiaofei/js/SmoothScroll.min.js"></script> 
+<script type="text/javascript" src="${reroot}/static/xiaofei/js/move-top.js"></script>
+<script type="text/javascript" src="${reroot}/static/xiaofei/js/easing.js"></script>	
+<script type="text/javascript" src="${reroot}/static/xiaofei/js/bootstrap.js"></script>
+</head>
+<body>
+	<div class="top-nav w3-agiletop">
+		<div class="container">
+			<div class="navbar-header w3llogo">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					菜单
+				</button>
+				<h1><a href="index.html">小飞找房</a></h1> 
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<div class="w3menu navbar-left">
+					<ul class="nav navbar">
+						<@of.column site_id=site.site_id >
+						<li class="<#if  columns.column_english == null> active</#if>">
+							<a href="${session.site.access_protocol}://${session.site.access_path}">首页</a>
+							<#list column as data>
+							<li
+								class="<#if data.column_english == columns.column_english> active</#if>">
+								<@of.column site_id=site.site_id parent_id=data.column_id > <a
+								href="<#if column?? && (column?size>0)  > javascript:;<#else>${data.column_english}.html</#if>">${data.column_name}</a>
+								<#if column?? && (column?size>0) >
+								<dl class="layui-nav-child">
+									<!-- 二级菜单 -->
+									<#list column as child>
+									<dd
+										class=" <#if child.column_english == columns.column_english> active</#if>">
+										<a href="${child.column_english}.html">${child.column_name}</a>
+									</dd>
+									</#list>
+								</dl>
+								</#if> </@of.column>
+							</li>
+							</#list> </@of.column>
+						</li>
+						
+					</ul>
+				</div>
+				<div class="clearfix"> </div>  
+			</div>
+		</div>	
+	</div>	

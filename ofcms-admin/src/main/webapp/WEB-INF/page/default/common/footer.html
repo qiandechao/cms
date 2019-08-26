@@ -1,0 +1,89 @@
+<div class="w3-agile-footer">
+	<div class="container">
+		<div class="footer-grids">
+			<div class="of-crad-content">
+	            <@of.like site_id=site.site_id>
+	            <p class="nav">
+	                <#list like as data >
+	                    <a href="${data.link_url}"  target="_blank">${data.link_name}</a>|
+	                </#list>
+	            </p>
+	        	</@of.like>
+	        	
+	        	<!-- <@of.param site_id=site.site_id>
+		          <div class="col-md-4 footer-grid">
+					<div class="foot-top-w3">
+						<div class="footer-grid-heading">
+							<h4>${param.icp}</h4>
+						</div>
+						<div class="footer-grid-info">
+							<p>Eiusmod Tempor inc
+								<span>St Dolore Place,Kingsport 56777.</span>
+							</p>
+							<p class="phone">Phone : +1 123 456 789
+								<span>Email : <a href="mailto:example@email.com">mail@example.com</a></span>
+								<span>FAX : <a href="mailto:example@email.com">123 456 7890</a></span>
+							</p>
+						</div>
+					</div>
+				</div> -->
+				<!--   <div class="col-md-4 footer-grid">
+					<div class="foot-top-w3">
+						<div class="footer-grid-heading">
+							<h4>Newsletter</h4>
+						</div>
+						<div class="footer-grid-info">
+							<p>AND ALWAYS STAY INFORMED OF THE LATEST COMPANY NEWS AND EVENTS!</p>
+						</div>
+						<div class="w3-agileits-subscribe-form">
+							<form action="#" method="post">
+								<input type="text" placeholder="Email" name="email" required="">
+								<button class="btn1">Subscribe</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 footer-grid">
+					<div class="foot-top-w3">
+						<div class="footer-grid-heading">
+							<h4>Follow Us</h4>
+						</div>
+						<div class="social">
+							<ul>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-rss"></i></a></li>
+								<li><a href="#"><i class="fa fa-vk"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div> -->
+		        </@of.param>
+	        	
+			        	
+	        	
+		        <!-- <p>
+		            Copyright◎ 2017-2020 <a href="http://wwww.ofsoft.cn" target="_blank">wwww.ofsoft.cn</a>,
+		            All Rights Reserved 湘ICP备17023316号
+		        </p> -->
+		    </div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<script>
+    layui.use(['carousel','element'], function () {
+        var carousel = layui.carousel;
+        var element = layui.element;
+        //图片轮播
+        carousel.render({
+            elem: '#test'
+            , width: '100%' //设置容器宽度
+            , arrow: 'always' //始终显示箭头
+            , height: '250px'
+            , autoplay:true
+            , full:false
+            , interval: 3000
+        });
+    });
+</script>
